@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Chirper</title>
+
+		<!-- bower:css -->
+		<link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.css" />
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+		<!-- endbower -->
+
+		<!-- inject:css -->
+		<link rel="stylesheet" href="lib/angular/angular-csp.css">
+		<link rel="stylesheet" href="lib/angular-local-storage/demo/demo-style.css">
+		<link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.css">
+		<link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/styles.css">
+		<!-- endinject -->
+	</head>
+	<body>
+		<div ui-view></div>
+		<!-- bower:js -->
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+		<script src="lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+		<script src="lib/angular-mocks/angular-mocks.js"></script>
+		<script src="lib/moment/moment.js"></script>
+		<script src="lib/jquery/dist/jquery.js"></script>
+		<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+		<!-- endbower -->
+
+		<!-- inject:js-->
+		<script src="js/app.module.js"></script>
+		<script src="js/login/login.controller.js"></script>
+		<script src="js/logout/logout.controller.js"></script>
+		<script src="js/posts/posts.controller.js"></script>
+		<script src="js/services/auth.interceptor.js"></script>
+		<script src="js/services/auth.service.js"></script>
+		<script src="js/services/posts.service.js"></script>
+		<script src="js/register/register.controller.js"></script>
+		<!-- endinject -->
+
+	</body>
+</html>
