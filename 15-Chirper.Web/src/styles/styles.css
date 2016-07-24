@@ -1,0 +1,46 @@
+body {
+    background-image: url(/images/bkg.jpg);
+    background-attachment: fixed;
+    background-size: 1920px 1080px;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.post-container {
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 600px;
+    position: relative;
+}
+
+.jumbotron {
+    font-family: 'Basic Title Font', Arial;
+    padding: 10px;
+    background-color: #6D7889;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.navbar-header {
+    text-align: center;
+}
+
+img.nav-logo {
+    width: 100px;
+    height: 50px;
+}
+
+.navbar>li.active {
+    color: #fff;
+}
+
+
+.post{
+	float: right;
+}
+
+.date{
+	color: #44A3C1;
+}
