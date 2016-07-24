@@ -30,6 +30,7 @@
                     },
                     function(err){
                         defer.reject(err.data.message);
+                        toastr.warning(error.data + error.statusText);
                     }
                 );
                 return defer.promise;
@@ -43,16 +44,18 @@
                  .then(
                     function(response){
                         defer.resolve(response);
+                        toastr.success('You have added a chirp!');
                     },
                     function(err){
                         defer.reject(err.data.message);
+                        toastr.warning(error.data + error.statusText);
                     }
                  );
                  return defer.promise;
         }
 
         //Grabs comments from a post and display the main posts page
-        function getComments(comments){
+        function getComments(){
             var defer = $q.defer();
 
             $http.get(apiUrl + 'comments')
@@ -60,22 +63,24 @@
                     function(response){
                         console.log('Get Factory for comments', response);
                         defer.resolve(response);
+
                     },
                     function(err){
                         defer.reject(err.data.message);
+                        toastr.warning(error.data + error.statusText);
                     }
                 );
                 return defer.promise;
         }
 
         //Adds a comment to a posts to the database
-        function addComments(data){
+        function addComments(comment){
             var defer = $q.defer();
-            //var data = {PostId: PostId, Text: Text}
-            $http.post(apiUrl + 'comments', data)
+            $http.post(apiUrl + 'comments', comment)
                  .then(
                     function(response){
                         defer.resolve(response);
+                        toastr.success('You have added a comment!');
                     },
                     function(err){
                         defer.reject(err.data.message);
