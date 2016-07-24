@@ -51,6 +51,8 @@ namespace Chirper.API.Controllers
                 return BadRequest();
             }
 
+            post.LikeCount++;
+
             db.Entry(post).State = EntityState.Modified;
 
             try
@@ -91,7 +93,8 @@ namespace Chirper.API.Controllers
 
             post.UserId = user.Id;
             post.CreatedDate = DateTime.Now;
-
+            
+     
             db.Posts.Add(post);
             db.SaveChanges();
 
