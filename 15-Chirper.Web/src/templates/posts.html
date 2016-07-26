@@ -26,10 +26,11 @@
 <!-- end of user navigation -->
 <!-- Start of Posts Container -->
 <div class="post-container">
-    <div ng-hide="vm.authData">
-    <h1 class="jumbotron"> Hi {{vm.chirpuser}} </h1>
-    </div>
+ 
+    <!-- Views current user -->
+    <h1 class="jumbotron"> Welcome, {{posts.chirpuser}}!</h1>
    
+   <!-- Enter a new post -->
     <div class="input-group">
         <span class="input-group-btn">
             <textarea class="form-control" rows="3" placeholder="Say something..." ng-model="posts.post.Text" autofocus></textarea>
@@ -46,7 +47,6 @@
                         <p class="date pull-right">{{post.CreatedDate | date: 'MM/dd/yyyy @ h:mma'}}</p>
                         <br>
                         <p>{{post.Text}}</p>
-
                     </div>
                     <div class="panel-footer">
                         <p>Posted By:<strong> {{post.User.ChirpName}}</strong></p>
@@ -64,7 +64,7 @@
                         <button type="button" class="btn btn-primary btn-xs" ng-click="showComment=!showComment">View Comments</button>
                         <br>
                         <div ng-repeat="comment in post.Comments" ng-show="showComment">
-                            <strong>@{{comment.User.ChirpName}}</strong> {{comment.Text}} on {{comment.CreatedDate | date: 'MM/dd/yyyy'}}
+                            <strong>@{{comment.User.ChirpName}}</strong> {{comment.Text}} on {{comment.CreatedDate | date: 'MM/dd/yyyy @ h:mma'}}
                         </div>
                     </div>
                 </div>
