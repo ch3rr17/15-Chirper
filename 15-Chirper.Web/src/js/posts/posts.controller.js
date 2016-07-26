@@ -15,20 +15,18 @@
         vm.post = {}; //creates an object to hold a post for a user
         vm.showComment = false;
         vm.comments = []; //creates an object to hold a comment of a post
-        vm.authData = {};
 
-        //Get posts
+
+
+        //Get posts and passes on the username to view on the page
         vm.grabPosts = function() {
             var authData = localStorageService.get('authorizationData');
             vm.chirpuser = authData.username;
-            console.log('data', authData);
-            console.log(vm.chirpuser);
-            PostsFactory.getPosts(vm.posts,authData)
+            PostsFactory.getPosts(vm.posts, vm.chirpuser)
                 .then(
                     function(response) {
-                        console.log('Status: We got posts!', response); //console response
                         vm.posts = response.data;
-                        console.log('Received posts data', vm.posts); //console data
+
                     },
                     function(message) {
                         toastr.warning(message);
@@ -40,16 +38,12 @@
         vm.grabPosts();
 
 
-
         //Post new Chirps
         vm.newPosts = function(post) {
             PostsFactory.addPosts(post)
                 .then(
                     function(response) {
                         vm.posts.push(response.data);
-                        
-                        console.log('chirp post works!', post); //console data
-
                     },
                     function(message) {
                         toastr.warning(message);
@@ -65,18 +59,13 @@
             PostsFactory.getComments(vm.post.comments)
                 .then(
                     function(response) {
-                        console.log('Status: We got comments!', response); //console response
                         vm.posts.comments = response.data;
-                        console.log('Received comments', vm.posts.comments); //console data
                     },
                     function(message) {
                         toastr.warning(message);
                     }
                 );
         }; //end of get comments
-
-
-
 
         //Create a new comment and pass the data into the service
         vm.newComments = function(id, post) {
@@ -86,7 +75,7 @@
                 .then(
                     function(response) {
                         vm.posts[vm.posts.indexOf(post)].Comments.push(response.data);
-                        console.log('chirp comment works!', response.data);
+                        toastr.success('You have added a new comment');
                     },
                     function(message) {
                         toastr.warning(message);
@@ -97,6 +86,7 @@
         //Logs out the user
         vm.logout = function() {
             authService.logout()
+            toastr.success('Logout successful');
         };
 
 
