@@ -27,6 +27,7 @@
                  .then(
                     function(response){
                         defer.resolve(response);
+                        toastr.success('We have chirps!');
                     },
                     function(err){
                         defer.reject(err.data.message);
@@ -84,6 +85,7 @@
                     },
                     function(err){
                         defer.reject(err.data.message);
+                        toastr.warning(error.data);
                     }
                  );
                  return defer.promise;
