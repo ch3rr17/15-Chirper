@@ -31,7 +31,6 @@
                     },
                     function(err){
                         defer.reject(err.data.message);
-                        toastr.warning(error.data + error.statusText);
                     }
                 );
                 return defer.promise;
@@ -49,7 +48,6 @@
                     },
                     function(err){
                         defer.reject(err.data.message);
-                        toastr.warning(error.data + error.statusText);
                     }
                  );
                  return defer.promise;
@@ -62,9 +60,7 @@
             $http.get(apiUrl + 'comments')
                  .then(
                     function(response){
-                        console.log('Get Factory for comments', response);
                         defer.resolve(response);
-
                     },
                     function(err){
                         defer.reject(err.data.message);
@@ -80,12 +76,11 @@
             $http.post(apiUrl + 'comments', comment)
                  .then(
                     function(response){
-                        defer.resolve(response);
-                        toastr.success('You have added a comment!');
+                        defer.resolve(response);    
                     },
                     function(err){
                         defer.reject(err.data.message);
-                        toastr.warning(error.data);
+                        toastr.error(error.data);
                     }
                  );
                  return defer.promise;
