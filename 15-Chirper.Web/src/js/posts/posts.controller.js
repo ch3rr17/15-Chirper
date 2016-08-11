@@ -16,8 +16,6 @@
         vm.showComment = false;
         vm.comments = []; //creates an object to hold a comment of a post
 
-
-
         //Get posts and passes on the username to view on the page
         vm.grabPosts = function() {
             var authData = localStorageService.get('authorizationData');
@@ -26,10 +24,9 @@
                 .then(
                     function(response) {
                         vm.posts = response.data;
-
                     },
                     function(message) {
-                        toastr.warning(message);
+                        toastr.error(message);
                     }
                 );
         }; //end of get posts
@@ -46,12 +43,10 @@
                         vm.posts.push(response.data);
                     },
                     function(message) {
-                        toastr.warning(message);
+                        toastr.error(message);
                     }
                 );
         }; //end of new posts
-
-        // end of new comments function
 
 
         //Get Comments
@@ -62,7 +57,7 @@
                         vm.posts.comments = response.data;
                     },
                     function(message) {
-                        toastr.warning(message);
+                        toastr.error(message);
                     }
                 );
         }; //end of get comments
@@ -78,7 +73,7 @@
                         toastr.success('You have added a new comment');
                     },
                     function(message) {
-                        toastr.warning(message);
+                        toastr.error(message);
                     }
                 );
         };
@@ -88,7 +83,5 @@
             authService.logout()
             toastr.success('Logout successful');
         };
-
-
     } //end of PostsController function
 })();
